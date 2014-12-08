@@ -1,0 +1,60 @@
+FORMAT: 1A
+
+# SLAM
+Service for storing and calculating SLA for various services
+
+# Events
+Incoming events
+
+## Event Collection [/event]
+### Send an Event [POST]
+Send an event to either trigger an Incident, add more failing metrics or resolve an Incident. Response will containt a list of updated incidents. 
++ Request (application/json)
+
+        {
+            "event_type": "trigger/resolve",
+            "metric": "text",
+            "sc_ids": [number, number],
+            "created": "ISO Format"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "detail": "OK"
+            }
+
+
+
+## Incident [/incident/{id}]
+A single Incident with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Event to perform action with. Has example value.
+
++ Model (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "failing_metrics": [
+                        {
+                            "id": number, 
+                            "metric": "text", 
+                            "start": "datetime", 
+                            "end": "datetime/null"
+                        }
+                    ],
+                "service_id": number,
+                "start": "datetime",
+                "end": "datetime/null"
+            }
+
+### Retrieve an Incident [GET]
++ Response 200
+
+    [Incident][]
+
