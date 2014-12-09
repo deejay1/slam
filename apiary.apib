@@ -74,8 +74,9 @@ Send an event to either trigger an Incident, add more failing metrics or resolve
 
 
 # Group Incident
+Incidents are created from incoming events.
 
-## Incidents Collection [/incident]
+## Incidents Collection [/incident{?service,status}]
 
 + Model (application/json)
 
@@ -113,6 +114,16 @@ Send an event to either trigger an Incident, add more failing metrics or resolve
             }]
     
 ### List all Incidents [GET]
+Fetches all incidents
+
++ Parameters
+
+    + service (optional, integer) ... Numeric service ID for a service from the Service Catalogue, for which to fetch incidents.
+    + status  (optional, string) ... Fetch only incident with a given status.
+    
+        + Values
+            + `triggered`
+            + `resolved`
 
 + Response 200
 
