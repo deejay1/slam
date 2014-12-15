@@ -159,3 +159,27 @@ A single Incident with all its details by its *id*
 
     [Incident][]
 
+# Group SLA
+
+Endpoints returning data about calculated SLA
+
+## SLA [/sla/{id}{?since,until,resolution}]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the service for which to calculate SLA (taken from Service Catalogue).
+    + since (optional, date-time, `2014-01-01T12:00Z`) ... Date in ISO 8601 format since when to calculate the SLA
+    + until (optional, date-time, `2014-01-31T12:00Z`) ... Date in ISO 8601 format until when to calculate the SLA
+    + resolution (optional, int) ... Resolution for SLA calculations (FIXME: please specify what it means)
+    
++ Model (application/json)
+
+    + Body
+    
+            {
+                "sla": 99
+            }
+
+### Retrieve SLA data [GET]
++ Response 200
+
+    [SLA][]
