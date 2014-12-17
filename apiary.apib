@@ -163,7 +163,7 @@ A single Incident with all its details by its *id*
 
 Endpoints returning data about calculated SLA
 
-## SLA [/sla/{id}{?since,until,resolution}]
+## SLA [/sla/{id}{?since,until}]
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the service for which to calculate SLA (taken from Service Catalogue).
@@ -182,3 +182,29 @@ Endpoints returning data about calculated SLA
 + Response 200
 
     [SLA][]
+    
+## Predefined SLA periods [/sla/{id}/summary]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the service for which to calculate SLA (taken from Service Catalogue).
+
++ Model (application/json)
+
+    + Body
+    
+            {
+                "budget_year": 99,
+                "yesterday": 99,
+                "current_day": 99,
+                "current_quarter": 99,
+                "last_30_days": 99,
+                "last_365_days": 99
+                
+            }
+
+### Retrieve predefined SLA [GET]
+Retrieves predefined SLA periods for a given service
+
++ Response 200
+
+    [Predefined SLA periods][]
