@@ -72,6 +72,14 @@ Send an event to either trigger an Incident, add more failing metrics or resolve
                 "detail": "OK"
             }
 
++ Response 400 (application/json)
+
+
+    + Body
+
+            {
+                "detail": "Wrong event format"
+            }
 
 # Group Incident
 Incidents are created from incoming events.
