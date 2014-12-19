@@ -29,13 +29,13 @@ Incoming events
                     "event_type": {
                         "type": "string",
                         "required": true,
-                        "oneof": ["trigger", "resolve"]
-                        "description": "Type of event (trigger if it starts SLA failure, resolve if it ends if)",
+                        "oneof": ["trigger", "resolve"],
+                        "description": "Type of event (trigger if it starts SLA failure, resolve if it ends if)"
                     },
                     "metric": {
                         "type": "string",
                         "required": true,
-                        "description": "Identifier of the metrics",
+                        "description": "Identifier of the metrics"
                     },
                     "sc_ids": {
                         "type": "array",
@@ -43,15 +43,15 @@ Incoming events
                             "type": "integer"
                         },
                         "minItems": 1,
-                        "uniqueItems": true
-                        "description": "ID's of services from Service Catalogue",
+                        "uniqueItems": true,
+                        "description": "ID's of services from Service Catalogue"
                     },
                     "created": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
                         "required": true,
-                        "description": "Date the event was created on the sender",
-                    },
+                        "description": "Date the event was created on the sender"
+                    }
                 }
             }
 
