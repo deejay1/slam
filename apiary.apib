@@ -16,6 +16,7 @@ Incoming events
                 "event_type": "trigger",
                 "metric": "my.metric",
                 "sc_ids": [1, 2],
+                "environment": "prod",
                 "created": "2014-12-01T02:00:00Z"
             }
 
@@ -54,8 +55,7 @@ Incoming events
                     },
                     "environment": {
                         "type": "string",
-                        "required": false,
-                        "oneof": ["prod", "dev", "test", "preprod"],
+                        "required": true,
                         "description": "Environment type"
                     },
                 }
@@ -110,7 +110,8 @@ Incidents are created from incoming events.
                     ],
                 "service_id": 1,
                 "start": "2014-12-01T02:00:00Z",
-                "end": "2014-12-01T02:10:00Z"
+                "end": "2014-12-01T02:10:00Z",
+                "environment": "prod"
             },
             {
                 "id": 2,
@@ -124,7 +125,8 @@ Incidents are created from incoming events.
                     ],
                 "service_id": 1,
                 "start": "2014-12-02T02:00:00Z",
-                "end": "2014-12-012T02:10:00Z"
+                "end": "2014-12-012T02:10:00Z",
+                "environment": "prod"
             }]
     
 ### List all Incidents [GET]
@@ -140,13 +142,7 @@ Fetches all incidents
             + `resolved`
             
     + environment = `all` (optional, string) ... Environment (production, development, etc)
-    
-        + Values
-            + `all`
-            + `prod`
-            + `dev`
-            + `test`
-            + `preprod`
+
 
 + Response 200
 
@@ -195,11 +191,6 @@ Endpoints returning data about calculated SLA
     + until = `<current_day>` (optional, date-time, `2014-01-31`) ... Date in ISO 8601 format until when to calculate the SLA
     + environment = `prod` (optional, string) ... Environment (production, development, etc)
 
-        + Values
-            + `prod`
-            + `dev`
-            + `test`
-            + `preprod`
     
 + Model (application/json)
 
@@ -219,12 +210,6 @@ Endpoints returning data about calculated SLA
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the service for which to calculate SLA (taken from Service Catalogue).
     + environment = `prod` (optional, string) ... Environment (production, development, etc)
-
-        + Values
-            + `prod`
-            + `dev`
-            + `test`
-            + `preprod`
 
 + Model (application/json)
 
