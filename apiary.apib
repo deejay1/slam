@@ -235,3 +235,43 @@ Retrieves predefined SLA periods for a given service
 + Response 200
 
     [Predefined SLA periods][]
+
+# Group Technical breaks
+
+Endpoints supporting the technical break s functionality
+
+## Starting a technical break [/technical_break/{id}/start/]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the service for which a technical break mode should be enabled (taken from Service Catalogue)
+
++ Model (application/json)
+
+    + Body
+    
+            No body required
+
+### Start a technical break [POST]
++ Response 201
+
+        {
+            "detail": "success"
+        }
+
+## Ending a technical break [/technical_break/{id}/end/]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the service for which a technical break mode should be disabled (taken from Service Catalogue)
+
++ Model (application/json)
+
+    + Body
+    
+            No body required
+
+### End a technical break [POST]
++ Response 201
+
+        {
+            "detail": "success"
+        }
